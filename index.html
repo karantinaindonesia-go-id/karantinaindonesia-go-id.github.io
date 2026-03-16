@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badan Karantina Indonesia</title>
+<meta name="google-site-verification" content="SrTZawFSaLAONuV52vjH13dAEw3zOeO0J7W9G7wwpi8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1a6b35;--green2:#1e7d3e;--green3:#24944a;
+  --red:#d0302a;
+  --gray1:#f4f6f4;--gray2:#e8ede9;--gray3:#c5cec6;--gray4:#6b7c6d;
+  --txt:#1a1a1a;--txt2:#444;--txt3:#777;
+  --white:#fff;
+  --font:'Inter',sans-serif;
+  --r:8px;
+}
+body{font-family:var(--font);color:var(--txt);background:#fff;font-size:14px;line-height:1.5}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:var(--font);cursor:pointer}
+
+/* TOP TICKER */
+.topbar{background:var(--green);height:38px;overflow:hidden}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center}
+.tbadge{background:var(--red);color:#fff;font-size:10.5px;font-weight:700;padding:0 14px;white-space:nowrap;letter-spacing:.5px;height:100%;display:flex;align-items:center;flex-shrink:0}
+.touter{flex:1;overflow:hidden;height:100%;display:flex;align-items:center;padding:0 14px;border-right:1px solid rgba(255,255,255,.12)}
+.ttrack{display:flex;animation:tick 52s linear infinite;white-space:nowrap}
+.ttrack:hover{animation-play-state:paused}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.titem{display:inline-flex;align-items:center;gap:8px;padding-right:52px;font-size:12px;color:rgba(255,255,255,.9)}
+.ttag{background:rgba(255,255,255,.18);border-radius:3px;font-size:10px;font-weight:700;padding:1px 7px;color:#fff}
+.tright{display:flex;align-items:center;height:100%;flex-shrink:0;padding-left:14px}
+.tright a{color:rgba(255,255,255,.8);font-size:11.5px;padding:0 11px;height:100%;display:flex;align-items:center;border-left:1px solid rgba(255,255,255,.12)}
+.tright a:first-child{border-left:none}
+.tright a:hover{color:#fff;background:rgba(255,255,255,.07)}
+
+/* HEADER */
+header{background:#fff;border-bottom:1px solid #dde5de;position:sticky;top:0;z-index:200;box-shadow:0 1px 6px rgba(0,0,0,.07)}
+.hdr{max-width:1280px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo-a img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:1px}
+.nl{padding:8px 12px;font-size:13px;font-weight:500;color:var(--txt2);border-radius:6px;white-space:nowrap;border:none;background:none;position:relative}
+.nl:hover{color:var(--green);background:#f0f7f2}
+.nl.active{color:var(--green);font-weight:600}
+.nl.active::after{content:'';position:absolute;bottom:-9px;left:10px;right:10px;height:2.5px;background:var(--green);border-radius:2px 2px 0 0}
+.nl svg{width:10px;height:10px;vertical-align:middle;margin-left:2px;opacity:.55}
+.nl .drop{display:none;position:absolute;top:calc(100% + 9px);left:0;background:#fff;border:1px solid var(--gray2);border-radius:8px;min-width:210px;box-shadow:0 8px 28px rgba(0,0,0,.11);z-index:500;padding:6px 0}
+.nl:hover .drop{display:block}
+.drop a{display:block;padding:9px 16px;font-size:13px;color:var(--txt2)}
+.drop a:hover{background:var(--gray1);color:var(--green)}
+.hbtns{display:flex;gap:8px;align-items:center}
+.bsrch{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gray3);background:none;display:flex;align-items:center;justify-content:center;color:var(--txt3);font-size:15px}
+.bsrch:hover{border-color:var(--green);color:var(--green)}
+.bupt{padding:0 16px;height:36px;background:var(--green);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px}
+.bupt:hover{background:var(--green2)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:#0d3b1e;height:500px}
+.swrap{display:flex;height:100%;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100%;height:100%;position:relative}
+.simg{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sovl{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.65) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.04) 100%)}
+.scnt{position:absolute;bottom:52px;left:0;right:0;max-width:1280px;margin:0 auto;padding:0 40px}
+.slbl{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:3px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:12px}
+.scnt h2{font-size:32px;font-weight:700;color:#fff;line-height:1.25;max-width:560px;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.sdots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
+.sdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:none;padding:0;transition:.3s}
+.sdot.on{background:#fff;width:24px;border-radius:4px}
+.sarr{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.3);color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;backdrop-filter:blur(6px)}
+.sarr:hover{background:rgba(255,255,255,.3)}
+.sarr.prev{left:20px}.sarr.next{right:20px}
+
+/* SECTIONS */
+.sec{max-width:1280px;margin:0 auto;padding:52px 24px}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px}
+.stitle{font-size:22px;font-weight:700;color:var(--green)}
+.ssub{font-size:13px;color:var(--txt3);margin-top:3px}
+.sall{color:var(--green);font-size:13px;font-weight:600;border:1.5px solid var(--green);padding:7px 18px;border-radius:6px;white-space:nowrap;display:inline-block}
+.sall:hover{background:var(--green);color:#fff}
+.eyebrow{font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+
+/* LAYANAN */
+.lgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:14px}
+.lcard{border:1.5px solid var(--gray2);border-radius:var(--r);padding:20px 10px 16px;text-align:center;transition:.2s;background:#fff;display:block}
+.lcard:hover{border-color:var(--green3);box-shadow:0 4px 18px rgba(26,107,53,.1);transform:translateY(-2px)}
+.lcard img{width:52px;height:52px;object-fit:contain;margin:0 auto 10px}
+.lname{font-size:12px;font-weight:700;color:var(--green);line-height:1.3;margin-bottom:4px}
+.ldesc{font-size:10.5px;color:var(--txt3);line-height:1.4}
+.simbox{background:var(--gray1);border:1px solid var(--gray2);border-radius:var(--r);padding:22px 24px;margin-top:20px}
+.simbox .st{font-size:13px;font-weight:700;margin-bottom:8px}
+.simbox .sl{font-size:11.5px;color:var(--green);display:block;margin-bottom:14px;text-decoration:underline;text-underline-offset:2px;line-height:1.5}
+.simrow{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.simf{display:flex;flex-direction:column;gap:5px}
+.simf label{font-size:11.5px;font-weight:600;color:var(--txt3)}
+.simf select,.simf input{padding:9px 12px;border:1.5px solid #ccc;border-radius:6px;font-size:13px;font-family:var(--font);background:#fff;min-width:200px}
+.simf select:focus,.simf input:focus{outline:none;border-color:var(--green)}
+.bhit{padding:10px 28px;background:var(--green);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;height:40px}
+.bhit:hover{background:var(--green2)}
+
+/* BERITA */
+.bbg{background:var(--gray1)}
+.bins{max-width:1280px;margin:0 auto;padding:52px 24px}
+.ntabs{display:flex;gap:0;margin-bottom:28px;border-bottom:2px solid var(--gray2)}
+.ntab{padding:10px 20px;font-size:13.5px;font-weight:500;color:var(--txt3);border:none;background:none;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:.15s}
+.ntab.on{color:var(--green);font-weight:700;border-bottom-color:var(--green)}
+.ntab:hover:not(.on){color:var(--txt)}
+.bugrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.bcat{font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.bdate{font-size:11.5px;color:var(--txt3)}
+/* featured */
+.bfeat{border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--gray2);cursor:pointer;transition:.2s;display:block}
+.bfeat:hover{box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.bfeat img{width:100%;height:260px;object-fit:cover}
+.bfeatb{padding:18px}
+.bfeatb h3{font-size:16px;font-weight:700;line-height:1.4;margin-bottom:8px}
+.bfeatb p{font-size:12.5px;color:var(--txt2);line-height:1.6;margin-bottom:10px}
+.bread{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:var(--green);margin-top:6px}
+/* side items */
+.blist{display:flex;flex-direction:column;gap:12px}
+.bitem{display:flex;background:#fff;border:1px solid var(--gray2);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.2s;text-decoration:none}
+.bitem:hover{box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.bitem img{width:120px;height:90px;object-fit:cover;flex-shrink:0}
+.bib{padding:12px 14px;flex:1}
+.bib h4{font-size:13px;font-weight:600;line-height:1.4;margin-bottom:6px}
+/* seputar karantina */
+.skitem{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--gray2);cursor:pointer;text-decoration:none}
+.skitem:last-child{border-bottom:none}
+.skitem:hover .sktitle{color:var(--green)}
+.sknum{font-size:32px;font-weight:700;color:var(--green);opacity:.2;line-height:1;min-width:32px;margin-top:-4px}
+.sktitle{font-size:13.5px;font-weight:600;line-height:1.4;margin-bottom:4px;transition:.15s;color:var(--txt)}
+/* pemerintahan */
+.bpitem{display:flex;gap:12px;padding:12px;background:#fff;border:1px solid var(--gray2);border-radius:6px;margin-bottom:10px}
+.bpdot{width:8px;height:8px;border-radius:50%;background:var(--green3);flex-shrink:0;margin-top:5px}
+.bptext{font-size:12.5px;font-weight:500;line-height:1.4}
+.bpdate{font-size:11px;color:var(--txt3);margin-top:3px}
+.tabp{display:none}.tabp.on{display:block}
+
+/* MIDDLE BANNERS */
+.mbsec{background:#fff;border-top:1px solid var(--gray2);border-bottom:1px solid var(--gray2)}
+.mbgrid{max-width:1280px;margin:0 auto;padding:22px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mbitem{border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.2s;display:block}
+.mbitem:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.mbitem img{width:100%;height:110px;object-fit:cover}
+
+/* INFOGRAFIS */
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.icard{border-radius:var(--r);overflow:hidden;border:1px solid var(--gray2);background:#fff;cursor:pointer;transition:.2s;display:block}
+.icard:hover{box-shadow:0 4px 18px rgba(0,0,0,.1);transform:translateY(-2px)}
+.icard img{width:100%;height:180px;object-fit:cover}
+.itag{font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;padding:10px 12px 0}
+.ititle{font-size:13px;font-weight:600;padding:4px 12px 14px;line-height:1.4;color:var(--txt)}
+
+/* BULETIN */
+.bbulbg{background:var(--gray1)}
+.bulgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bulcard{background:#fff;border:1px solid var(--gray2);border-radius:var(--r);overflow:hidden}
+.bulcw{position:relative;height:230px;overflow:hidden;cursor:pointer}
+.bulcw img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.bulcw:hover img{transform:scale(1.04)}
+.bulbadge{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px}
+.bulb{padding:16px}
+.buledi{font-size:11px;color:var(--txt3);margin-bottom:3px}
+.bultype{font-size:10.5px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.bultitle{font-size:13.5px;font-weight:600;line-height:1.4;margin-bottom:6px}
+.bulmeta{font-size:11.5px;color:var(--txt3);margin-bottom:14px}
+.bulact{display:flex;gap:8px}
+.bpri{padding:7px 16px;background:var(--green);color:#fff;border:none;border-radius:5px;font-size:12px;font-weight:600}
+.bout{padding:7px 16px;background:none;color:var(--green);border:1.5px solid var(--green);border-radius:5px;font-size:12px;font-weight:600}
+.bpri:hover{background:var(--green2)}.bout:hover{background:var(--green);color:#fff}
+
+/* JADWAL */
+.jsec{background:#fff;border-top:1px solid var(--gray2)}
+.jlay{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start;margin-top:28px}
+.jitem{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--gray2)}
+.jitem:last-child{border-bottom:none;padding-bottom:0}
+.jdbox{min-width:58px;height:62px;background:var(--green);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.jdbox .jd{font-size:24px;font-weight:700;line-height:1}
+.jdbox .jm{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;opacity:.85}
+.jtag{display:inline-block;background:#e6f2ea;color:var(--green);font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.3px}
+.jtitle{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:4px}
+.jloc{font-size:12px;color:var(--txt3)}
+/* Calendar */
+.calw{background:var(--gray1);border:1px solid var(--gray2);border-radius:var(--r);padding:18px}
+.calh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.calm{font-size:13.5px;font-weight:700}
+.caln{background:none;border:1px solid var(--gray3);border-radius:5px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--txt3)}
+.caln:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.caldh{font-size:10.5px;font-weight:600;color:var(--txt3);text-align:center;padding:3px 0}
+.cald{font-size:12px;text-align:center;padding:5px 2px;border-radius:5px;cursor:pointer;color:var(--txt2)}
+.cald:hover{background:var(--gray2)}
+.cald.today{background:var(--green);color:#fff;font-weight:700}
+.cald.other{color:var(--gray3)}
+.cald.hev::after{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--green3);margin:1px auto 0}
+.callg{display:flex;gap:14px;margin-top:10px;font-size:10.5px;color:var(--txt3)}
+.callg span{display:flex;align-items:center;gap:4px}
+.ldot{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+/* INSTANSI */
+.instsec{background:var(--gray1);border-top:1px solid var(--gray2)}
+.instw{overflow:hidden;position:relative;padding:4px 0}
+.instw::before,.instw::after{content:'';position:absolute;top:0;bottom:0;width:64px;z-index:2;pointer-events:none}
+.instw::before{left:0;background:linear-gradient(to right,var(--gray1),transparent)}
+.instw::after{right:0;background:linear-gradient(to left,var(--gray1),transparent)}
+.insttrack{display:flex;gap:16px;animation:instscroll 40s linear infinite}
+.insttrack:hover{animation-play-state:paused}
+@keyframes instscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.instel{flex-shrink:0;width:110px;height:68px;background:#fff;border:1px solid var(--gray2);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer;transition:.2s}
+.instel:hover{border-color:var(--green);box-shadow:0 2px 10px rgba(26,107,53,.1)}
+.instel img{max-width:94px;max-height:52px;object-fit:contain;filter:grayscale(20%);transition:.2s}
+.instel:hover img{filter:none}
+
+/* FOOTER */
+footer{background:#111;color:rgba(255,255,255,.7)}
+.ftop{max-width:1280px;margin:0 auto;padding:52px 24px 32px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px}
+.flogo img{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1);margin-bottom:14px}
+.fabout{font-size:12.5px;line-height:1.8;color:rgba(255,255,255,.5);margin-bottom:14px}
+.fcontact p{font-size:12px;color:rgba(255,255,255,.45);line-height:2}
+.fcol h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:8px}
+.fcol a{font-size:12.5px;color:rgba(255,255,255,.5);transition:.15s}
+.fcol a:hover{color:#fff}
+.fsoc{display:flex;gap:7px;margin-top:14px}
+.fsa{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;transition:.2s}
+.fsa:hover{background:var(--green);color:#fff}
+.fbot{border-top:1px solid rgba(255,255,255,.08);max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:rgba(255,255,255,.3);flex-wrap:wrap;gap:8px}
+.fbot a{color:rgba(255,255,255,.3);margin-left:14px}
+.fbot a:hover{color:rgba(255,255,255,.65)}
+
+/* FAB */
+.wafab{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);z-index:999;font-size:24px;text-decoration:none;border:none}
+.wafab:hover{transform:scale(1.08)}
+.topfab{position:fixed;bottom:84px;right:24px;width:40px;height:40px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;border:none;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.topfab:hover{background:var(--green2)}
+
+@media(max-width:1100px){.lgrid{grid-template-columns:repeat(4,1fr)}nav{display:none}}
+@media(max-width:768px){.bugrid,.bulgrid,.igrid,.jlay{grid-template-columns:1fr}.mbgrid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr 1fr}.lgrid{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- TOP TICKER -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="tbadge">TERKINI</div>
+    <div class="touter">
+      <div class="ttrack">
+        <span class="titem"><span class="ttag">Umum</span> Pengumuman Penting 1.1. : Informasi terkini dari Deputi Bidang Karantina Ikan</span>
+        <span class="titem"><span class="ttag">Kepegawaian</span> Pengumuman Penting 1: Informasi terkini dari Inspektorat</span>
+        <span class="titem"><span class="ttag">Layanan</span> Pengumuman Penting 1: Informasi terkini dari UPT</span>
+        <span class="titem"><span class="ttag">Umum</span> Pengumuman Penting 1: Informasi terkini dari Kerja Sama</span>
+        <span class="titem"><span class="ttag">Kebijakan</span> Undangan Sosialisasi Peraturan Badan Karantina Indonesia Nomor 1 Tahun 2024 tentang Tata Cara Tindakan Karantina</span>
+        <span class="titem"><span class="ttag">Kepegawaian</span> Seleksi Penerimaan PPPK Badan Karantina Indonesia Tahun Anggaran 2024</span>
+        <span class="titem"><span class="ttag">Layanan</span> Jadwal Pelayanan Karantina Hewan, Ikan, dan Tumbuhan Selama Libur Natal 2024 dan Tahun Baru 2025</span>
+        <span class="titem"><span class="ttag">Umum</span> Himbauan Kewaspadaan Penyakit Hewan Menular Strategis (PHMS) di Wilayah Perbatasan</span>
+        <span class="titem"><span class="ttag">Lelang</span> Lelang Barang Milik Negara (BMN) Berupa Kendaraan Roda Empat Eks Operasional Karantina Pertanian</span>
+        <!-- dupe -->
+        <span class="titem"><span class="ttag">Umum</span> Pengumuman Penting 1.1. : Informasi terkini dari Deputi Bidang Karantina Ikan</span>
+        <span class="titem"><span class="ttag">Kepegawaian</span> Pengumuman Penting 1: Informasi terkini dari Inspektorat</span>
+        <span class="titem"><span class="ttag">Layanan</span> Pengumuman Penting 1: Informasi terkini dari UPT</span>
+        <span class="titem"><span class="ttag">Umum</span> Pengumuman Penting 1: Informasi terkini dari Kerja Sama</span>
+        <span class="titem"><span class="ttag">Kebijakan</span> Undangan Sosialisasi Peraturan Badan Karantina Indonesia Nomor 1 Tahun 2024 tentang Tata Cara Tindakan Karantina</span>
+        <span class="titem"><span class="ttag">Kepegawaian</span> Seleksi Penerimaan PPPK Badan Karantina Indonesia Tahun Anggaran 2024</span>
+        <span class="titem"><span class="ttag">Layanan</span> Jadwal Pelayanan Karantina Hewan, Ikan, dan Tumbuhan Selama Libur Natal 2024 dan Tahun Baru 2025</span>
+        <span class="titem"><span class="ttag">Umum</span> Himbauan Kewaspadaan Penyakit Hewan Menular Strategis (PHMS) di Wilayah Perbatasan</span>
+        <span class="titem"><span class="ttag">Lelang</span> Lelang Barang Milik Negara (BMN) Berupa Kendaraan Roda Empat Eks Operasional Karantina Pertanian</span>
+      </div>
+    </div>
+    <div class="tright">
+      <a href="https://ppid.karantinaindonesia.go.id" target="_blank">PPID</a>
+      <a href="#pengaduan" target="_blank">Pengaduan</a>
+      <a href="https://ptk.karantinaindonesia.go.id/" target="_blank">PTK Online</a>
+      <a href="#">EN</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <a href="#" class="logo-a">
+      <img src="#_next/image?url=%2FBARANTIN.png&w=1920&q=75" alt="Badan Karantina Indonesia"
+        onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;gap:10px\'><div style=\'width:48px;height:48px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;flex-shrink:0\'>🌿</div><div><div style=\'font-size:14px;font-weight:700;color:var(--green)\'>Badan Karantina Indonesia</div><div style=\'font-size:10.5px;color:var(--txt3)\'>Kompeten · Unggul · Amanah · Tangguh</div></div></div>'">
+    </a>
+
+    <nav>
+      <button class="nl active">Beranda</button>
+      <button class="nl">Profil <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l4 4 4-4"/></svg>
+        <div class="drop">
+          <a href="#">Tentang BARANTIN</a><a href="#">Visi &amp; Misi</a><a href="#">Struktur Organisasi</a><a href="#">Kepala BARANTIN</a><a href="#">Sejarah</a>
+        </div>
+      </button>
+      <button class="nl">Layanan <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l4 4 4-4"/></svg>
+        <div class="drop">
+          <a href="https://ptk.karantinaindonesia.go.id/" target="_blank">PTK Online</a><a href="https://notice.karantinaindonesia.go.id/" target="_blank">Prior Notice</a><a href="https://apikh.karantina.pertanian.go.id/" target="_blank">IKH</a><a href="#">IKI</a><a href="https://ikt.karantinaindonesia.go.id/" target="_blank">IKT</a><a href="#">Phyto-req</a>
+        </div>
+      </button>
+      <button class="nl">Regulasi <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l4 4 4-4"/></svg>
+        <div class="drop">
+          <a href="#">Peraturan Perundangan</a><a href="https://jdih.karantinaindonesia.go.id" target="_blank">JDIH</a><a href="#">Standar Teknis</a>
+        </div>
+      </button>
+      <button class="nl">Publikasi <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l4 4 4-4"/></svg>
+        <div class="drop">
+          <a href="#infografis" target="_blank">Infografis</a><a href="#buletin" target="_blank">Buletin Digital</a><a href="#">Laporan Tahunan</a><a href="#">Statistik</a>
+        </div>
+      </button>
+      <button class="nl">Berita <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l4 4 4-4"/></svg>
+        <div class="drop">
+          <a href="#berita?category=berita-utama" target="_blank">Berita Utama</a><a href="#berita?category=seputar-karantina" target="_blank">Seputar Karantina</a><a href="#agenda" target="_blank">Agenda</a>
+        </div>
+      </button>
+      <button class="nl">Pengaduan</button>
+    </nav>
+
+    <div class="hbtns">
+      <button class="bsrch">🔍</button>
+      <button class="bupt">UPT <svg viewBox="0 0 10 6" fill="none" stroke="#fff" stroke-width="1.8" width="10" height="10"><path d="M1 1l4 4 4-4"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<div class="hero">
+  <div class="swrap" id="sw">
+    <div class="slide">
+      <img class="simg" src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fslides%2F01KHWE5391ZS5M3HZ6KSW0D49Z.png&w=3840&q=75" alt="Selamat Datang" onerror="this.style.cssText='width:100%;height:100%;background:linear-gradient(135deg,#0d3b1e,#1a6b35)'">
+      <div class="sovl"></div>
+      <div class="scnt"><div class="slbl">Selamat Datang</div><h2>Di Website Resmi BARANTIN</h2></div>
+    </div>
+    <div class="slide">
+      <img class="simg" src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fslides%2F01KJBYRFW45SDCZ18XFCA3G0E4.png&w=3840&q=75" alt="" onerror="this.style.cssText='width:100%;height:100%;background:linear-gradient(135deg,#0d2b3e,#1a5c6b)'">
+      <div class="sovl"></div>
+      <div class="scnt"><h2>Melindungi Indonesia dari Ancaman Hayati</h2></div>
+    </div>
+    <div class="slide">
+      <img class="simg" src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fslides%2F01KHT8Z33MHNBHGWR3VZ7F7JEE.png&w=3840&q=75" alt="Kompeten" onerror="this.style.cssText='width:100%;height:100%;background:linear-gradient(135deg,#1a3b0d,#2a6b1e)'">
+      <div class="sovl"></div>
+      <div class="scnt"><div class="slbl">Kompeten</div><h2>SDM Karantina yang Profesional dan Berdedikasi</h2></div>
+    </div>
+    <div class="slide">
+      <img class="simg" src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fslides%2F01KJC9HJAZS2RECN3Z5WG8VJCQ.png&w=3840&q=75" alt="Unggul" onerror="this.style.cssText='width:100%;height:100%;background:linear-gradient(135deg,#3b1a0d,#8c4a1e)'">
+      <div class="sovl"></div>
+      <div class="scnt"><div class="slbl">Unggul</div><h2>Sistem Karantina Berbasis Teknologi Modern</h2></div>
+    </div>
+    <div class="slide">
+      <img class="simg" src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fslides%2F01KJC9JTW7ERWYR0096ZQR2YXH.png&w=3840&q=75" alt="Amanah" onerror="this.style.cssText='width:100%;height:100%;background:linear-gradient(135deg,#3b2e0d,#8c701e)'">
+      <div class="sovl"></div>
+      <div class="scnt"><div class="slbl">Amanah</div><h2>Pengabdian Tulus untuk Kedaulatan Pangan Indonesia</h2></div>
+    </div>
+    <div class="slide">
+      <img class="simg" src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fslides%2F01KHWJ5X8KFNF0BRY61TF398MZ.png&w=3840&q=75" alt="Tangguh" onerror="this.style.cssText='width:100%;height:100%;background:linear-gradient(135deg,#0d1a3b,#1e2a6b)'">
+      <div class="sovl"></div>
+      <div class="scnt"><div class="slbl">Tangguh</div><h2>Siap Hadapi Tantangan di Seluruh Penjuru Nusantara</h2></div>
+    </div>
+  </div>
+  <button class="sarr prev" onclick="cs(-1)">&#8249;</button>
+  <button class="sarr next" onclick="cs(1)">&#8250;</button>
+  <div class="sdots" id="dots"></div>
+</div>
+
+<!-- AKSES LAYANAN -->
+<div style="border-bottom:1px solid var(--gray2)">
+<div class="sec">
+  <div class="sh">
+    <div><div class="stitle">Akses Layanan</div><div class="ssub">Pintasan cepat ke layanan yang paling sering diakses</div></div>
+  </div>
+  <div class="lgrid">
+    <a href="https://apikh.karantina.pertanian.go.id/" target="_blank" class="lcard">
+      <img src="#repository/main-web/media/31047399-550c-490f-acaa-604b4192927a.png.png" alt="IKH" onerror="this.outerHTML='<div style=\'width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px\'>🐄</div>'">
+      <div class="lname">IKH</div><div class="ldesc">Instalasi Karantina Hewan</div>
+    </a>
+    <a href="#" class="lcard">
+      <img src="#repository/main-web/media/2d1457b6-be3a-4bd0-b06f-712b0319a579.png.png" alt="IKI" onerror="this.outerHTML='<div style=\'width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px\'>🐟</div>'">
+      <div class="lname">IKI</div><div class="ldesc">Instalasi Karantina Ikan</div>
+    </a>
+    <a href="https://ikt.karantinaindonesia.go.id/ikt/?tab=login" target="_blank" class="lcard">
+      <img src="#repository/main-web/media/86f0406e-c43c-41ca-90e1-a8fa32899fd8.png.png" alt="IKT" onerror="this.outerHTML='<div style=\'width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px\'>🌱</div>'">
+      <div class="lname">IKT</div><div class="ldesc">Instalasi Karantina Tumbuhan</div>
+    </a>
+    <a href="https://sites.google.com/view/karantinatumbuhan-bki/home" target="_blank" class="lcard">
+      <img src="#repository/main-web/media/92aab014-4dae-408c-ad4d-d4dfac49ff51.png.png" alt="Phyto-req" onerror="this.outerHTML='<div style=\'width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px\'>📋</div>'">
+      <div class="lname">Phyto-req</div><div class="ldesc">AROPT | Persyaratan Impor | PSAT</div>
+    </a>
+    <a href="https://ptk.karantinaindonesia.go.id/" target="_blank" class="lcard">
+      <div style="width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px">🖥️</div>
+      <div class="lname">PTK Online</div><div class="ldesc">Registrasi dan Permohonan Tindakan Karantina</div>
+    </a>
+    <a href="https://notice.karantinaindonesia.go.id/" target="_blank" class="lcard">
+      <img src="#repository/main-web/media/ecfd9a57-6f6c-4116-a935-fcb784ca8b4c.png.png" alt="Prior Notice" onerror="this.outerHTML='<div style=\'width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px\'>📢</div>'">
+      <div class="lname">Prior Notice</div><div class="ldesc">Registrasi dan Pengajuan Pemberitahuan Awal untuk Impor ke Indonesia</div>
+    </a>
+    <a href="https://ppid.karantinaindonesia.go.id" target="_blank" class="lcard">
+      <div style="width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px">📰</div>
+      <div class="lname">Layanan Informasi</div><div class="ldesc">Portal resmi Barantin untuk menyediakan, menyimpan, dan melayani permohonan informasi publik</div>
+    </a>
+    <a href="#pengaduan" target="_blank" class="lcard">
+      <div style="width:52px;height:52px;background:#e6f2ea;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px">📣</div>
+      <div class="lname">Layanan Pengaduan</div><div class="ldesc">Sampaikan aspirasi dan pengaduan Anda</div>
+    </a>
+  </div>
+
+  <!-- Simulasi -->
+  <div class="simbox">
+    <div class="st">Simulasi Biaya Karantina</div>
+    <a href="https://jdih.karantinaindonesia.go.id/repository/barantin-jdih/common/dokumen/2024pmkeuangan027.pdf" target="_blank" class="sl">
+      Peraturan Menteri Keuangan Nomor 27 Tahun 2024 tentang Jenis Dan Tarif Atas Jenis Penerimaan Negara Bukan Pajak Yang Bersifat Volatil Dan Kebutuhan Mendesak Yang Berlaku Pada Badan Karantina Indonesia
+    </a>
+    <div class="simrow">
+      <div class="simf"><label>Pilih Tarif</label>
+        <select><option value="">Pilih Tarif</option><option>Karantina Hewan Impor</option><option>Karantina Hewan Ekspor</option><option>Karantina Ikan Impor</option><option>Karantina Ikan Ekspor</option><option>Karantina Tumbuhan Impor</option><option>Karantina Tumbuhan Ekspor</option></select>
+      </div>
+      <div class="simf"><label>Jumlah</label><input type="number" placeholder="Masukkan jumlah..." min="1"></div>
+      <button class="bhit">Hitung</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- BERITA & INFORMASI -->
+<div class="bbg">
+<div class="bins">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px">
+    <div><div class="eyebrow">Berita Terkini</div><div class="stitle">Berita &amp; Informasi</div></div>
+    <a href="#berita" target="_blank" class="sall">Lihat Semua Berita</a>
+  </div>
+  <div class="ntabs">
+    <button class="ntab on" onclick="stab(0,this)">Berita Utama</button>
+    <button class="ntab" onclick="stab(1,this)">Seputar Karantina</button>
+    <button class="ntab" onclick="stab(2,this)">Berita Pemerintahan</button>
+  </div>
+
+  <!-- TAB 0 -->
+  <div class="tabp on" id="tp0">
+    <div class="bugrid">
+      <a href="#berita/operasi-patuh-karantina-barantin-siap-amankan-arus-mudik-dan-balik-lebaran" target="_blank" class="bfeat">
+        <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Farticles%2F01KKNCW11QJ54TXN89E1B6Y4GK.jpeg&w=1920&q=75" alt="Operasi Patuh Karantina" onerror="this.style.cssText='height:260px;background:linear-gradient(135deg,#1a6b35,#24944a);display:block'">
+        <div class="bfeatb">
+          <div class="bcat">Berita</div>
+          <h3>Operasi Patuh Karantina, Barantin Siap Amankan Arus Mudik dan Balik Lebaran</h3>
+          <p>Barantin gelar operasi patuh Karantina untuk mengantisipasi peningkatan lalu lintas komoditas pangan selama arus mudik dan balik Lebaran, pada tanggal 13-27 Maret 2026, di seluruh Indonesia.</p>
+          <div class="bdate">14 Mar 2026</div>
+          <span class="bread">Baca Selengkapnya →</span>
+        </div>
+      </a>
+      <div class="blist">
+        <a href="#berita/perkuat-pengawasan-jelang-lebaran-kepala-barantin-tinjau-layanan-karantina-dan-plbn-kalbar" target="_blank" class="bitem">
+          <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Farticles%2F01KKKCVTMEMGF6FZZCWD7FE794.jpeg&w=640&q=75" alt="" onerror="this.style.cssText='width:120px;background:#d0e8d8'">
+          <div class="bib"><div class="bcat">Berita</div><h4>Perkuat Pengawasan Jelang Lebaran, Kepala Barantin Tinjau Layanan Karantina dan PLBN Kalbar</h4><div class="bdate">13 Mar 2026</div></div>
+        </a>
+        <a href="#berita/perkuat-sistem-karantina-di-bangka-belitung-sinergisitas-lintas-sektoral-dan-mitra-menjadi-krusial" target="_blank" class="bitem">
+          <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Farticles%2F01KKD821K98HZT23378FZQTSJE.jpeg&w=640&q=75" alt="" onerror="this.style.cssText='width:120px;background:#d0dfe8'">
+          <div class="bib"><div class="bcat">Berita</div><h4>Perkuat Sistem Karantina di Bangka Belitung, Sinergisitas Lintas Sektoral dan Mitra Menjadi Krusial</h4><div class="bdate">11 Mar 2026</div></div>
+        </a>
+        <a href="#berita/nilai-komoditas-perikanan-tanimbar" target="_blank" class="bitem">
+          <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Farticles%2F01KKD6XEHSVM2GNJ676DQ1EZG7.jpg&w=640&q=75" alt="" onerror="this.style.cssText='width:120px;background:#d0e8e0'">
+          <div class="bib"><div class="bcat">Berita</div><h4>Nilai Komoditas Perikanan Tanimbar Capai Rp834 Miliar, Karantina Perkuat Pengawasan</h4><div class="bdate">11 Mar 2026</div></div>
+        </a>
+        <a href="#berita/jaga-keamanan-pangan-jelang-idulfitri-karantina-papua-tolak-14-ton-daging-ayam-tak-layak-konsumsi-" target="_blank" class="bitem">
+          <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Farticles%2F01KKBCQ6ZTXJR8P4Q97W1Y5A0R.jpeg&w=640&q=75" alt="" onerror="this.style.cssText='width:120px;background:#e8d8d8'">
+          <div class="bib"><div class="bcat">Berita</div><h4>Jaga Keamanan Pangan Jelang Idulfitri, Karantina Papua Tolak 14 Ton Daging Ayam Tak Layak Konsumsi</h4><div class="bdate">10 Mar 2026</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 1 -->
+  <div class="tabp" id="tp1">
+    <div class="bugrid">
+      <div>
+        <a href="#berita/barantin-gelar-mudik-bersama-2026-fasilitasi-pegawai-pulang-ke-kampung-halaman" target="_blank" class="skitem">
+          <div class="sknum">1</div><div><div class="sktitle">Barantin Gelar Mudik Bersama 2026, Fasilitasi Pegawai Pulang ke Kampung Halaman</div><div class="bdate">13 Mar 2026</div></div>
+        </a>
+        <a href="#berita/si-anabul-mau-ikut-mudik-begini-prosedur-karantinanya" target="_blank" class="skitem">
+          <div class="sknum">2</div><div><div class="sktitle">Si Anabul Mau Ikut Mudik, Begini Prosedur Karantinanya</div><div class="bdate">11 Mar 2026</div></div>
+        </a>
+        <a href="#berita/ekspor-perdana-2280-ton-beras-ke-arab-saudi-peran-karantina-jadi-kunci-keberterimaan" target="_blank" class="skitem">
+          <div class="sknum">3</div><div><div class="sktitle">Ekspor Perdana 2.280 Ton Beras ke Arab Saudi, Peran Karantina Jadi Kunci Keberterimaan</div><div class="bdate">23 Feb 2026</div></div>
+        </a>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center">
+        <a href="#berita?category=seputar-karantina" target="_blank" class="sall">Lihat Semua Berita →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2 -->
+  <div class="tabp" id="tp2">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <img src="#_next/image?url=%2Fkomdigi.png&w=256&q=75" alt="Komdigi" style="height:28px;width:auto" onerror="this.style.display='none'">
+      <div><div style="font-size:14px;font-weight:700">Berita Pemerintahan</div><div style="font-size:11px;color:var(--txt3)">Sumber dari Kementerian Komunikasi dan Digital</div></div>
+    </div>
+    <div class="bpitem"><div class="bpdot"></div><div><div class="bptext">Pemerintah Perkuat Ketahanan Pangan Nasional Lewat Sinergi Lintas Kementerian</div><div class="bpdate">15 Mar 2026</div></div></div>
+    <div class="bpitem"><div class="bpdot"></div><div><div class="bptext">Digitalisasi Layanan Publik Terus Dipercepat, Kemkomdigi Dorong Inovasi Berbasis AI</div><div class="bpdate">14 Mar 2026</div></div></div>
+    <div class="bpitem"><div class="bpdot"></div><div><div class="bptext">Menko Pangan Pimpin Rapat Koordinasi Ketahanan Pangan Jelang Hari Raya Idulfitri</div><div class="bpdate">13 Mar 2026</div></div></div>
+    <div class="bpitem"><div class="bpdot"></div><div><div class="bptext">Indonesia Perkuat Kerjasama Perdagangan Produk Pertanian dengan Sejumlah Negara ASEAN</div><div class="bpdate">12 Mar 2026</div></div></div>
+  </div>
+</div>
+</div>
+
+<!-- MIDDLE BANNERS -->
+<div class="mbsec">
+  <div class="mbgrid">
+    <a href="#" class="mbitem"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fmiddle-banners%2F01KJEATB6HMMKD9ADTJQCGJCHJ.png&w=1280&q=75" alt="Waspada Nipah" onerror="this.parentElement.innerHTML='<div style=\'height:110px;background:#c0392b;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;border-radius:8px\'>⚠️ Waspada Nipah</div>'"></a>
+    <a href="#" class="mbitem"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fmiddle-banners%2F01KJEATQV046PGZ7B8ZNDZFMN8.png&w=1280&q=75" alt="Waspada PPR" onerror="this.parentElement.innerHTML='<div style=\'height:110px;background:#8e44ad;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;border-radius:8px\'>🐑 Waspada PPR</div>'"></a>
+    <a href="#" class="mbitem"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fmiddle-banners%2F01KJEKJQQPNYH0NR4N0NE32FFK.png&w=1280&q=75" alt="PPID" onerror="this.parentElement.innerHTML='<div style=\'height:110px;background:#2980b9;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;border-radius:8px\'>📄 PPID</div>'"></a>
+  </div>
+</div>
+
+<!-- INFOGRAFIS -->
+<div style="border-top:1px solid var(--gray2);border-bottom:1px solid var(--gray2)">
+<div class="sec">
+  <div class="sh">
+    <div><div class="stitle">Infografis Publik</div><div class="ssub">Informasi visual dan edukasi untuk masyarakat</div></div>
+    <a href="#infografis" target="_blank" class="sall">Lihat Semua</a>
+  </div>
+  <div class="igrid">
+    <a href="#" class="icard"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finfographics%2Fefdf2403-79e0-430e-9c15-7d701448abc4.jpeg.jpeg&w=640&q=75" alt="Kenapa Komoditas" onerror="this.style.cssText='height:180px;background:linear-gradient(135deg,#1a6b35,#24944a);display:block'"><div class="itag">FishPlant</div><div class="ititle">Kenapa Komoditas Harus Ada yang Dimusnahkan?</div></a>
+    <a href="#" class="icard"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finfographics%2Fec3aeeb8-5536-4e49-bc2f-865e9dfcddba.jpeg.jpeg&w=640&q=75" alt="Buah Mudik" onerror="this.style.cssText='height:180px;background:linear-gradient(135deg,#c8a000,#e6c200);display:block'"><div class="itag">Edukasi</div><div class="ititle">Buah ini juga "MUDIK" selama "RAMADAN"</div></a>
+    <a href="#" class="icard"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finfographics%2F130eda02-fbeb-4db9-b29b-e4e9efb4ddd5.jpeg.jpeg&w=640&q=75" alt="Jastip" onerror="this.style.cssText='height:180px;background:linear-gradient(135deg,#d0302a,#e85a54);display:block'"><div class="itag">Edukasi</div><div class="ititle">Jastip Luar Negeri? Baca ini dulu</div></a>
+    <a href="#" class="icard"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finfographics%2F40f87d8e-bbe9-43d5-bd24-7008125d30a3.jpeg.jpeg&w=640&q=75" alt="Ikan Sapu Sapu" onerror="this.style.cssText='height:180px;background:linear-gradient(135deg,#1a4a6b,#2a7aab);display:block'"><div class="itag">Fish</div><div class="ititle">Yuk Kenali Ikan Sapu Sapu</div></a>
+  </div>
+</div>
+</div>
+
+<!-- BULETIN DIGITAL -->
+<div class="bbulbg" style="border-bottom:1px solid var(--gray2)">
+<div class="sec">
+  <div class="sh">
+    <div><div class="stitle">Buletin Digital</div><div class="ssub">Publikasi dan informasi media terbaru seputar karantina.</div></div>
+    <a href="#buletin" target="_blank" class="sall">Lihat Semua</a>
+  </div>
+  <div class="bulgrid">
+    <div class="bulcard">
+      <div class="bulcw">
+        <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fbulletins%2Fcovers%2F01KHQWZMJSPVZW4E4SRNC3ZAZK.jpg&w=1280&q=75" alt="Edisi 5" onerror="this.parentElement.style.background='linear-gradient(160deg,#1a6b35,#c8a000)';this.remove()">
+        <div class="bulbadge">Edisi 5</div>
+      </div>
+      <div class="bulb">
+        <div class="buledi">5 | Januari 2026</div><div class="bultype">Buletin Karantina · Majalah Internal</div>
+        <div class="bultitle">Buletin KarantinaKita - Edisi 5 | Januari 2026</div>
+        <div class="bulmeta">Terbit Jan 2026</div>
+        <div class="bulact"><button class="bpri" onclick="window.open('#buletin/37','_blank')">Baca Publikasi Ini</button><button class="bout" onclick="window.open('#buletin/37','_blank')">Flipbook</button></div>
+      </div>
+    </div>
+    <div class="bulcard">
+      <div class="bulcw">
+        <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fbulletins%2Fcovers%2F01KHQXKD14VMEBVCS33890NG7C.jpg&w=1280&q=75" alt="Edisi 4" onerror="this.parentElement.style.background='linear-gradient(160deg,#1a6b35,#2a8c6e)';this.remove()">
+        <div class="bulbadge">Edisi 4</div>
+      </div>
+      <div class="bulb">
+        <div class="buledi">4 | November 2025</div><div class="bultype">Buletin Karantina · Majalah Internal</div>
+        <div class="bultitle">Buletin KarantinaKita - Edisi 4 | November 2025</div>
+        <div class="bulmeta">Terbit Nov 2025</div>
+        <div class="bulact"><button class="bpri" onclick="window.open('#buletin/1','_blank')">Baca Publikasi Ini</button><button class="bout" onclick="window.open('#buletin/1','_blank')">Flipbook</button></div>
+      </div>
+    </div>
+    <div class="bulcard">
+      <div class="bulcw">
+        <img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Fbulletins%2Fcovers%2F01KHQXTC4BW4K7VSGR4YNXSS8M.jpg&w=1280&q=75" alt="Edisi 3" onerror="this.parentElement.style.background='linear-gradient(160deg,#2c3e8c,#1a6b35)';this.remove()">
+        <div class="bulbadge">Edisi 3</div>
+      </div>
+      <div class="bulb">
+        <div class="buledi">3 | September 2025</div><div class="bultype">Buletin Karantina · Majalah Internal</div>
+        <div class="bultitle">Buletin KarantinaKita - Edisi 3 | September 2025</div>
+        <div class="bulmeta">Terbit Sep 2025</div>
+        <div class="bulact"><button class="bpri" onclick="window.open('#buletin/2','_blank')">Baca Publikasi Ini</button><button class="bout" onclick="window.open('#buletin/2','_blank')">Flipbook</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- JADWAL KEGIATAN -->
+<div class="jsec">
+<div class="sec">
+  <div class="sh">
+    <div><div class="eyebrow">Agenda &amp; Kegiatan</div><div class="stitle">Jadwal Kegiatan Terkini</div><div class="ssub">Jadwal lengkap kegiatan Badan Karantina Indonesia, mulai dari rapat koordinasi, bimbingan teknis, hingga acara seremonial.</div></div>
+    <a href="#agenda" target="_blank" class="sall">Lihat Semua Agenda</a>
+  </div>
+  <div class="jlay">
+    <div>
+      <div class="jitem">
+        <div class="jdbox"><div class="jd">17</div><div class="jm">Mar</div></div>
+        <div><span class="jtag">Rapat Koordinasi</span><div class="jtitle">Rapat Koordinasi Nasional Pengawasan Karantina Hewan dan Tumbuhan 2026</div><div class="jloc">📍 Kantor Pusat BARANTIN, Jakarta · 09.00 WIB</div></div>
+      </div>
+      <div class="jitem">
+        <div class="jdbox"><div class="jd">19</div><div class="jm">Mar</div></div>
+        <div><span class="jtag">Bimbingan Teknis</span><div class="jtitle">Bimbingan Teknis Tata Cara Tindakan Karantina Tumbuhan Angkatan III</div><div class="jloc">📍 Balai Diklat Pertanian, Bogor · 08.00 WIB</div></div>
+      </div>
+      <div class="jitem">
+        <div class="jdbox"><div class="jd">21</div><div class="jm">Mar</div></div>
+        <div><span class="jtag">Sosialisasi</span><div class="jtitle">Sosialisasi Regulasi Perkarantinaan untuk Pelaku Usaha Ekspor Ikan</div><div class="jloc">📍 Aula BKHIT Surabaya · 10.00 WIB</div></div>
+      </div>
+      <div class="jitem" style="padding-bottom:0;border-bottom:none">
+        <div class="jdbox"><div class="jd">25</div><div class="jm">Mar</div></div>
+        <div><span class="jtag">Seremonial</span><div class="jtitle">Peringatan Hari Karantina Nasional 2026 dan Penyerahan Penghargaan UPT Terbaik</div><div class="jloc">📍 Gedung Sekretariat Negara, Jakarta · 09.00 WIB</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="calw">
+        <div class="calh">
+          <button class="caln" onclick="cn(-1)">&#8249;</button>
+          <div class="calm" id="ct">March 2026</div>
+          <button class="caln" onclick="cn(1)">&#8250;</button>
+        </div>
+        <div class="calg" id="cg"></div>
+        <div class="callg">
+          <span><span class="ldot" style="background:var(--green)"></span> Hari Ini</span>
+          <span><span class="ldot" style="background:var(--green3);opacity:.5"></span> Ada Kegiatan</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:14px">
+        <a href="#agenda" target="_blank" class="sall" style="display:inline-block">Lihat Semua Agenda</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- INSTANSI TERKAIT -->
+<div class="instsec">
+<div class="sec" style="padding-bottom:48px">
+  <div class="sh" style="margin-bottom:24px">
+    <div><div class="stitle">Instansi Terkait</div><div class="ssub">Berkolaborasi dan Berkoordinasi Bersama</div></div>
+  </div>
+  <div class="instw">
+    <div class="insttrack" id="it">
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F0cdb555c-0ecc-4fe5-9cd8-e53a12496241.png.png&w=256&q=75" alt="Kemenkes" title="Kementerian Kesehatan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2Fbf5ccbad-4536-4e45-b275-6d0e0d48bf54.png.png&w=256&q=75" alt="BGN" title="Badan Gizi Nasional"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2Fb49d3eb9-5b0e-4670-af06-7c34902bf5d4.jpg.jpg&w=256&q=75" alt="Bakamla" title="Badan Keamanan Laut"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F14b47b18-9dd1-4e49-9be3-81f52c0c2271.png.png&w=256&q=75" alt="Komdigi" title="Kementerian Komunikasi dan Digital"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F700e1a2c-fedd-44aa-8863-89af17caa04f.png.png&w=256&q=75" alt="Kemimipas" title="Kementerian Imigrasi dan Pemasyarakatan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F5c8b9763-3cb0-4800-954b-2d654bd5ef2d.png.png&w=256&q=75" alt="Kemlu" title="Kementerian Luar Negeri"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F33c31955-7fcd-4a56-b478-b29c8282dacf.png.png&w=256&q=75" alt="Kemenkopangan" title="Kementerian Koordinator Bidang Pangan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F8699818f-6c46-4229-810a-2df2ccb92cc9.png.png&w=256&q=75" alt="BNPP" title="Badan Nasional Pengelola Perbatasan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2Fd6fd7714-3509-4256-9af5-87c60711b7cc.png.png&w=256&q=75" alt="BSSN" title="Badan Siber dan Sandi Negara"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDEZZ3JRY5R8YNNZQ4ENS8EX.png&w=256&q=75" alt="Kementan" title="Kementerian Pertanian"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDEZZS7HAB1JGVT1YG0FPG1E.png&w=256&q=75" alt="KKP" title="Kementerian Kelautan dan Perikanan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDF00B4GAPMVWR262B7RXVPA.png&w=256&q=75" alt="Kemenhut" title="Kementerian Kehutanan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDF00YNTHHWGZDQ90XKC6T2G.png&w=256&q=75" alt="Bapanas" title="Badan Pangan Nasional"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDF01DDV3WTA3XNQC2GSJQNF.png&w=256&q=75" alt="BRIN" title="BRIN"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F0a82d007-1b05-40b5-8e60-7768c6d34430.png.png&w=256&q=75" alt="BNN" title="BNN"></div>
+      <!-- dupes -->
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F0cdb555c-0ecc-4fe5-9cd8-e53a12496241.png.png&w=256&q=75" alt="Kemenkes"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2Fbf5ccbad-4536-4e45-b275-6d0e0d48bf54.png.png&w=256&q=75" alt="BGN"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2Fb49d3eb9-5b0e-4670-af06-7c34902bf5d4.jpg.jpg&w=256&q=75" alt="Bakamla"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F14b47b18-9dd1-4e49-9be3-81f52c0c2271.png.png&w=256&q=75" alt="Komdigi"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F33c31955-7fcd-4a56-b478-b29c8282dacf.png.png&w=256&q=75" alt="Kemenkopangan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDEZZ3JRY5R8YNNZQ4ENS8EX.png&w=256&q=75" alt="Kementan"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDEZZS7HAB1JGVT1YG0FPG1E.png&w=256&q=75" alt="KKP"></div>
+      <div class="instel"><img src="#_next/image?url=https%3A%2F%2Fkarantinaindonesia.go.id%2Frepository%2Fmain-web%2Finstitutions%2F01KDF00YNTHHWGZDQ90XKC6T2G.png&w=256&q=75" alt="Bapanas"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftop">
+    <div>
+      <div class="flogo">
+        <img src="#_next/image?url=%2FBARANTIN.png&w=1920&q=75" alt="BARANTIN" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div style="display:none;color:#fff;font-size:15px;font-weight:700;margin-bottom:14px">Badan Karantina Indonesia</div>
+      </div>
+      <p class="fabout">Badan Karantina Indonesia (BARANTIN) adalah lembaga pemerintah yang bertugas melindungi sumber daya alam hayati Indonesia dari ancaman hama, penyakit, dan organisme pengganggu melalui tindakan karantina yang profesional dan modern.</p>
+      <div class="fcontact">
+        <p>Jl. Harsono RM No.3, Ragunan, Ps. Minggu, Jakarta Selatan 12550</p>
+        <p>Telp: (021) 7890-2345</p>
+        <p>Email: info@karantinaindonesia.go.id</p>
+      </div>
+      <div class="fsoc">
+        <a href="#" class="fsa" title="Twitter/X">𝕏</a>
+        <a href="#" class="fsa" title="Facebook">f</a>
+        <a href="#" class="fsa" title="Instagram">◈</a>
+        <a href="#" class="fsa" title="YouTube">▶</a>
+        <a href="#" class="fsa" title="TikTok">♪</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Tentang Kami</h4>
+      <ul>
+        <li><a href="#">Profil BARANTIN</a></li>
+        <li><a href="#">Visi &amp; Misi</a></li>
+        <li><a href="#">Struktur Organisasi</a></li>
+        <li><a href="#">Kepala BARANTIN</a></li>
+        <li><a href="#">Sejarah</a></li>
+        <li><a href="#">Tugas &amp; Fungsi</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="https://ptk.karantinaindonesia.go.id/" target="_blank">PTK Online</a></li>
+        <li><a href="https://notice.karantinaindonesia.go.id/" target="_blank">Prior Notice</a></li>
+        <li><a href="https://apikh.karantina.pertanian.go.id/" target="_blank">IKH</a></li>
+        <li><a href="#">IKI</a></li>
+        <li><a href="https://ikt.karantinaindonesia.go.id/" target="_blank">IKT</a></li>
+        <li><a href="https://ppid.karantinaindonesia.go.id" target="_blank">Layanan Informasi</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Tautan Terkait</h4>
+      <ul>
+        <li><a href="https://www.pertanian.go.id" target="_blank">Kementerian Pertanian</a></li>
+        <li><a href="https://kkp.go.id" target="_blank">Kementerian KKP</a></li>
+        <li><a href="https://ppid.karantinaindonesia.go.id" target="_blank">PPID</a></li>
+        <li><a href="https://jdih.karantinaindonesia.go.id" target="_blank">JDIH</a></li>
+        <li><a href="#pengaduan" target="_blank">Pengaduan</a></li>
+        <li><a href="#">Peta Situs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 Badan Karantina Indonesia. All Rights Reserved.</span>
+    <div><a href="#">Kebijakan Privasi</a><a href="#">Syarat &amp; Ketentuan</a><a href="#">Aksesibilitas</a></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/628119898043" target="_blank" class="wafab" title="WhatsApp">💬</a>
+<button class="topfab" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ke atas">↑</button>
+
+<script>
+// SLIDER
+let cur=0;
+const sw=document.getElementById('sw');
+const sls=sw.querySelectorAll('.slide');
+const dc=document.getElementById('dots');
+sls.forEach((_,i)=>{const d=document.createElement('button');d.className='sdot'+(i===0?' on':'');d.onclick=()=>gs(i);dc.appendChild(d);});
+function gs(n){cur=(n+sls.length)%sls.length;sw.style.transform=`translateX(-${cur*100}%)`;dc.querySelectorAll('.sdot').forEach((d,i)=>d.classList.toggle('on',i===cur));}
+function cs(d){gs(cur+d);}
+setInterval(()=>cs(1),5200);
+let tx=0;
+sw.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},false);
+sw.addEventListener('touchend',e=>{const dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>50)cs(dx>0?1:-1)},false);
+
+// TABS
+function stab(i,b){
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.tabp').forEach(p=>p.classList.remove('on'));
+  b.classList.add('on');
+  document.getElementById('tp'+i).classList.add('on');
+}
+
+// CALENDAR
+const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+let cd=new Date(2026,2,1);
+const ev=[17,19,21,25];
+function rc(){
+  const y=cd.getFullYear(),m=cd.getMonth();
+  document.getElementById('ct').textContent=months[m]+' '+y;
+  const g=document.getElementById('cg');g.innerHTML='';
+  ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d=>{const h=document.createElement('div');h.className='caldh';h.textContent=d;g.appendChild(h);});
+  const f=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),pd=new Date(y,m,0).getDate();
+  for(let i=0;i<f;i++){const d=document.createElement('div');d.className='cald other';d.textContent=pd-f+1+i;g.appendChild(d);}
+  const t=new Date();
+  for(let i=1;i<=days;i++){
+    const d=document.createElement('div');
+    let cls='cald';
+    if(t.getFullYear()===y&&t.getMonth()===m&&t.getDate()===i)cls+=' today';
+    if(ev.includes(i))cls+=' hev';
+    d.className=cls;d.textContent=i;
+    d.onclick=()=>{g.querySelectorAll('.cald').forEach(x=>x.classList.remove('sel'));d.classList.add('sel')};
+    g.appendChild(d);
+  }
+  const r=(7-(f+days)%7)%7;
+  for(let i=1;i<=r;i++){const d=document.createElement('div');d.className='cald other';d.textContent=i;g.appendChild(d);}
+}
+function cn(dir){cd=new Date(cd.getFullYear(),cd.getMonth()+dir,1);rc();}
+rc();
+</script>
+</body>
+</html>
